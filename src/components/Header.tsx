@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Menu, X, Monitor } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -12,7 +13,7 @@ const Header = () => {
     { name: 'Services', href: '/services' },
     { name: 'Implantations', href: '/implantations' },
     { name: 'À propos', href: '/about' },
-    { name: 'Réalisations', href: '/#realisations' },
+    { name: 'Réalisations', href: '/realisations' },
     { name: 'Contact', href: '/#contact' },
   ];
 
