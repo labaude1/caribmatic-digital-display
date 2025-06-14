@@ -4,6 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import PerformanceMonitor from "@/components/PerformanceMonitor";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
 import Implantations from "./pages/Implantations";
@@ -14,11 +15,25 @@ import BlogArticle from "./pages/BlogArticle";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 5 * 60 * 1000, // 5 minutes
+      gcTime: 10 * 60 * 1000, // 10 minutes
+      refetchOnWindowFocus: false,
+      refetchOnReconnect: 'always',
+      retry: (failureCount, error: any) => {
+        if (error?.status === 404) return false;
+        return failureCount < 2;
+      }
+    }
+  }
+});
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
+      <PerformanceMonitor />
       <Toaster />
       <Sonner />
       <BrowserRouter>
