@@ -17,6 +17,17 @@ interface UseWebVitalsOptions {
   reportAllChanges?: boolean;
 }
 
+// Extend Navigator interface to include connection property
+declare global {
+  interface Navigator {
+    connection?: {
+      effectiveType?: string;
+      downlink?: number;
+      rtt?: number;
+    };
+  }
+}
+
 export const useWebVitals = (options: UseWebVitalsOptions = {}) => {
   const {
     onCLS,
@@ -30,31 +41,31 @@ export const useWebVitals = (options: UseWebVitalsOptions = {}) => {
   useEffect(() => {
     const loadWebVitals = async () => {
       try {
-        const webVitalsModule = await import('web-vitals');
+        const { onCLS: getCLS, onFID: getFID, onFCP: getFCP, onLCP: getLCP, onTTFB: getTTFB } = await import('web-vitals');
         
         // Cumulative Layout Shift
         if (onCLS) {
-          webVitalsModule.getCLS(onCLS, { reportAllChanges });
+          getCLS(onCLS, { reportAllChanges });
         }
         
         // First Input Delay
         if (onFID) {
-          webVitalsModule.getFID(onFID, { reportAllChanges });
+          getFID(onFID, { reportAllChanges });
         }
         
         // First Contentful Paint
         if (onFCP) {
-          webVitalsModule.getFCP(onFCP, { reportAllChanges });
+          getFCP(onFCP, { reportAllChanges });
         }
         
         // Largest Contentful Paint
         if (onLCP) {
-          webVitalsModule.getLCP(onLCP, { reportAllChanges });
+          getLCP(onLCP, { reportAllChanges });
         }
         
         // Time to First Byte
         if (onTTFB) {
-          webVitalsModule.getTTFB(onTTFB, { reportAllChanges });
+          getTTFB(onTTFB, { reportAllChanges });
         }
       } catch (error) {
         console.warn('Web Vitals could not be loaded:', error);

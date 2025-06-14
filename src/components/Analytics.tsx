@@ -6,7 +6,10 @@ declare global {
   interface Window {
     gtag: (...args: any[]) => void;
     dataLayer: any[];
-    hj: (...args: any[]) => void;
+    hj: {
+      (...args: any[]): void;
+      q?: any[];
+    };
     _hjSettings: {
       hjid: number;
       hjsv: number;
@@ -121,7 +124,7 @@ const Analytics: React.FC<AnalyticsProps> = ({
         {`
           // Core Web Vitals monitoring
           if ('web-vital' in window) {
-            import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
+            import('web-vitals').then(({ onCLS, onFID, onFCP, onLCP, onTTFB }) => {
               function sendToAnalytics(metric) {
                 if (window.gtag) {
                   window.gtag('event', metric.name, {
@@ -133,11 +136,11 @@ const Analytics: React.FC<AnalyticsProps> = ({
                 }
               }
               
-              getCLS(sendToAnalytics);
-              getFID(sendToAnalytics);
-              getFCP(sendToAnalytics);
-              getLCP(sendToAnalytics);
-              getTTFB(sendToAnalytics);
+              onCLS(sendToAnalytics);
+              onFID(sendToAnalytics);
+              onFCP(sendToAnalytics);
+              onLCP(sendToAnalytics);
+              onTTFB(sendToAnalytics);
             });
           }
         `}
