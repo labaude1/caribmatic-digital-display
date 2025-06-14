@@ -10,7 +10,7 @@ interface WebVitalsMetric {
 
 interface UseWebVitalsOptions {
   onCLS?: (metric: WebVitalsMetric) => void;
-  onFID?: (metric: WebVitalsMetric) => void;
+  onINP?: (metric: WebVitalsMetric) => void;
   onFCP?: (metric: WebVitalsMetric) => void;
   onLCP?: (metric: WebVitalsMetric) => void;
   onTTFB?: (metric: WebVitalsMetric) => void;
@@ -31,7 +31,7 @@ declare global {
 export const useWebVitals = (options: UseWebVitalsOptions = {}) => {
   const {
     onCLS,
-    onFID,
+    onINP,
     onFCP,
     onLCP,
     onTTFB,
@@ -41,16 +41,16 @@ export const useWebVitals = (options: UseWebVitalsOptions = {}) => {
   useEffect(() => {
     const loadWebVitals = async () => {
       try {
-        const { onCLS: getCLS, onFID: getFID, onFCP: getFCP, onLCP: getLCP, onTTFB: getTTFB } = await import('web-vitals');
+        const { onCLS: getCLS, onINP: getINP, onFCP: getFCP, onLCP: getLCP, onTTFB: getTTFB } = await import('web-vitals');
         
         // Cumulative Layout Shift
         if (onCLS) {
           getCLS(onCLS, { reportAllChanges });
         }
         
-        // First Input Delay
-        if (onFID) {
-          getFID(onFID, { reportAllChanges });
+        // Interaction to Next Paint (replaces FID)
+        if (onINP) {
+          getINP(onINP, { reportAllChanges });
         }
         
         // First Contentful Paint
@@ -73,7 +73,7 @@ export const useWebVitals = (options: UseWebVitalsOptions = {}) => {
     };
 
     loadWebVitals();
-  }, [onCLS, onFID, onFCP, onLCP, onTTFB, reportAllChanges]);
+  }, [onCLS, onINP, onFCP, onLCP, onTTFB, reportAllChanges]);
 };
 
 // Default implementation that reports to Google Analytics
@@ -98,7 +98,7 @@ export const useWebVitalsGA = () => {
 
   useWebVitals({
     onCLS: sendToAnalytics,
-    onFID: sendToAnalytics,
+    onINP: sendToAnalytics,
     onFCP: sendToAnalytics,
     onLCP: sendToAnalytics,
     onTTFB: sendToAnalytics,

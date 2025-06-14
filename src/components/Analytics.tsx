@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 
@@ -124,7 +123,7 @@ const Analytics: React.FC<AnalyticsProps> = ({
         {`
           // Core Web Vitals monitoring
           if ('web-vital' in window) {
-            import('web-vitals').then(({ onCLS, onFID, onFCP, onLCP, onTTFB }) => {
+            import('web-vitals').then(({ onCLS, onINP, onFCP, onLCP, onTTFB }) => {
               function sendToAnalytics(metric) {
                 if (window.gtag) {
                   window.gtag('event', metric.name, {
@@ -137,7 +136,7 @@ const Analytics: React.FC<AnalyticsProps> = ({
               }
               
               onCLS(sendToAnalytics);
-              onFID(sendToAnalytics);
+              onINP(sendToAnalytics);
               onFCP(sendToAnalytics);
               onLCP(sendToAnalytics);
               onTTFB(sendToAnalytics);
