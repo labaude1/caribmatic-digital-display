@@ -13,6 +13,11 @@ import Realisations from "./pages/Realisations";
 import Blog from "./pages/Blog";
 import BlogArticle from "./pages/BlogArticle";
 import Contact from "./pages/Contact";
+import GuideDooh from "./pages/GuideDooh";
+import Comparatifs from "./pages/Comparatifs";
+import EtudesMarche from "./pages/EtudesMarche";
+import Resources from "./pages/Resources";
+import Glossaire from "./pages/Glossaire";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient({
@@ -46,6 +51,11 @@ const App = () => (
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogArticle />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/guide-dooh" element={<GuideDooh />} />
+          <Route path="/comparatifs" element={<Comparatifs />} />
+          <Route path="/etudes-marche" element={<EtudesMarche />} />
+          <Route path="/resources" element={<Resources />} />
+          <Route path="/glossaire" element={<Glossaire />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

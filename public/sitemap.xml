@@ -63,4 +63,44 @@
     <priority>0.9</priority>
   </url>
   
+  <!-- Guide DOOH -->
+  <url>
+    <loc>https://caribmatic.mq/guide-dooh</loc>
+    <lastmod>2024-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Comparatifs -->
+  <url>
+    <loc>https://caribmatic.mq/comparatifs</loc>
+    <lastmod>2024-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Études de marché -->
+  <url>
+    <loc>https://caribmatic.mq/etudes-marche</loc>
+    <lastmod>2024-06-14</lastmod>
+    <changefreq>quarterly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Ressources -->
+  <url>
+    <loc>https://caribmatic.mq/resources</loc>
+    <lastmod>2024-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Glossaire -->
+  <url>
+    <loc>https://caribmatic.mq/glossaire</loc>
+    <lastmod>2024-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
 </urlset>
