@@ -15,7 +15,7 @@ const Header = () => {
     { name: 'À propos', href: '/about' },
     { name: 'Réalisations', href: '/realisations' },
     { name: 'Blog', href: '/blog' },
-    { name: 'Contact', href: '/#contact' },
+    { name: 'Contact', href: '/contact' },
   ];
 
   const handleNavClick = (href: string) => {
@@ -50,31 +50,23 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
             {navigation.map((item) => (
-              item.href.startsWith('/') && !item.href.startsWith('/#') ? (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className="text-gray-700 hover:text-red-600 font-medium transition-colors duration-200"
-                >
-                  {item.name}
-                </Link>
-              ) : (
-                <button
-                  key={item.name}
-                  onClick={() => handleNavClick(item.href)}
-                  className="text-gray-700 hover:text-red-600 font-medium transition-colors duration-200"
-                >
-                  {item.name}
-                </button>
-              )
+              <Link
+                key={item.name}
+                to={item.href}
+                className="text-gray-700 hover:text-red-600 font-medium transition-colors duration-200"
+              >
+                {item.name}
+              </Link>
             ))}
           </nav>
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button className="bg-red-600 hover:bg-red-700 text-white px-6 py-2">
-              Devis Gratuit
-            </Button>
+            <Link to="/contact">
+              <Button className="bg-red-600 hover:bg-red-700 text-white px-6 py-2">
+                Devis Gratuit
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -93,28 +85,20 @@ const Header = () => {
           <div className="md:hidden pb-4">
             <div className="flex flex-col space-y-4">
               {navigation.map((item) => (
-                item.href.startsWith('/') && !item.href.startsWith('/#') ? (
-                  <Link
-                    key={item.name}
-                    to={item.href}
-                    className="text-gray-700 hover:text-red-600 font-medium"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                ) : (
-                  <button
-                    key={item.name}
-                    onClick={() => handleNavClick(item.href)}
-                    className="text-gray-700 hover:text-red-600 font-medium text-left"
-                  >
-                    {item.name}
-                  </button>
-                )
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className="text-gray-700 hover:text-red-600 font-medium"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
               ))}
-              <Button className="bg-red-600 hover:bg-red-700 text-white w-full">
-                Devis Gratuit
-              </Button>
+              <Link to="/contact">
+                <Button className="bg-red-600 hover:bg-red-700 text-white w-full">
+                  Devis Gratuit
+                </Button>
+              </Link>
             </div>
           </div>
         )}
