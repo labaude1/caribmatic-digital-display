@@ -68,6 +68,13 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta name="apple-mobile-web-app-status-bar-style" content="default" />
       <meta name="theme-color" content="#dc2626" />
       
+      {/* PWA Manifest */}
+      <link rel="manifest" href="/manifest.json" />
+      
+      {/* Apple Touch Icons */}
+      <link rel="apple-touch-icon" href="/icon-192.png" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/icon-192.png" />
+      
       {/* Performance & Preconnect */}
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -79,19 +86,32 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <link rel="dns-prefetch" href="//fonts.gstatic.com" />
       <link rel="dns-prefetch" href="//www.google-analytics.com" />
       
+      {/* Resource Hints */}
+      <link rel="preload" href="/fonts/main.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+      
+      {/* Service Worker Registration */}
+      <script>
+        {`
+          if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+              navigator.serviceWorker.register('/sw.js')
+                .then((registration) => {
+                  console.log('SW registered: ', registration);
+                })
+                .catch((registrationError) => {
+                  console.log('SW registration failed: ', registrationError);
+                });
+            });
+          }
+        `}
+      </script>
+      
       {/* Structured Data */}
       {jsonLd && (
         <script type="application/ld+json">
           {JSON.stringify(jsonLd)}
         </script>
       )}
-      
-      {/* Security Headers via Meta */}
-      <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://static.hotjar.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https://www.google-analytics.com https://stats.g.doubleclick.net https://*.hotjar.com wss://*.hotjar.com; frame-src 'self' https://www.google.com;" />
-      <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
-      <meta httpEquiv="X-Frame-Options" content="DENY" />
-      <meta httpEquiv="X-XSS-Protection" content="1; mode=block" />
-      <meta httpEquiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
     </Helmet>
   );
 };

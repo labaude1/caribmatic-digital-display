@@ -22,7 +22,7 @@ interface AnalyticsProps {
 
 const Analytics: React.FC<AnalyticsProps> = ({ 
   gaId = 'G-XXXXXXXXXX', // À remplacer par l'ID réel
-  hotjarId = 0000000, // À remplacer par l'ID réel
+  hotjarId = 1000000, // À remplacer par l'ID réel
   enableDebug = false 
 }) => {
   useEffect(() => {
@@ -52,7 +52,7 @@ const Analytics: React.FC<AnalyticsProps> = ({
     }
 
     // Initialize Hotjar
-    if (hotjarId && hotjarId !== 0000000) {
+    if (hotjarId && hotjarId !== 1000000) {
       window._hjSettings = {
         hjid: hotjarId,
         hjsv: 6
@@ -98,7 +98,7 @@ const Analytics: React.FC<AnalyticsProps> = ({
       )}
 
       {/* Hotjar Tracking Code */}
-      {hotjarId && hotjarId !== 0000000 && (
+      {hotjarId && hotjarId !== 1000000 && (
         <script>
           {`
             (function(h,o,t,j,a,r){

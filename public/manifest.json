@@ -1,0 +1,68 @@
+
+{
+  "name": "Caribmatic - Affichage Digital Martinique",
+  "short_name": "Caribmatic",
+  "description": "Leader de l'affichage digital en Martinique. 5 écrans LED 6m² dans les zones stratégiques.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#dc2626",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "fr-FR",
+  "dir": "ltr",
+  "categories": ["business", "marketing", "advertising"],
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/screenshot-narrow.png",
+      "sizes": "720x1280",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Services",
+      "url": "/services",
+      "description": "Découvrez nos services d'affichage digital"
+    },
+    {
+      "name": "Contact",
+      "url": "/contact",
+      "description": "Contactez-nous pour un devis gratuit"
+    },
+    {
+      "name": "Implantations",
+      "url": "/implantations",
+      "description": "Voir nos emplacements d'écrans LED"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "edge_side_includes": true
+}

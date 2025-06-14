@@ -7,6 +7,7 @@ import TestimonialsSection from '@/components/TestimonialsSection';
 import ImplantationsSection from '@/components/ImplantationsSection';
 import Footer from '@/components/Footer';
 import SEOHead from '@/components/SEOHead';
+import SecurityHeaders from '@/components/SecurityHeaders';
 import Analytics from '@/components/Analytics';
 import { organizationSchema, localBusinessSchema, serviceSchema } from '@/utils/schemas';
 
@@ -50,6 +51,7 @@ const Index = () => {
         canonicalUrl="https://caribmatic.mq/"
         jsonLd={combinedSchema}
       />
+      <SecurityHeaders />
       <Analytics />
       
       <Header />
