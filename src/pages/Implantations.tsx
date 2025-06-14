@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -23,7 +22,7 @@ const Implantations = () => {
       peakHours: '7h-9h / 17h-19h',
       demographics: 'Mixte : 25-55 ans, CSP+',
       image: '/placeholder.svg',
-      coordinates: [14.5994, -61.0037]
+      coordinates: [14.5994, -61.0037] as [number, number]
     },
     {
       id: 'mangles-acajou',
@@ -37,7 +36,7 @@ const Implantations = () => {
       peakHours: '6h30-9h / 16h30-19h',
       demographics: 'Actifs : 20-60 ans, toutes CSP',
       image: '/placeholder.svg',
-      coordinates: [14.5755, -61.0692]
+      coordinates: [14.5755, -61.0692] as [number, number]
     },
     {
       id: 'lezarde',
@@ -51,7 +50,7 @@ const Implantations = () => {
       peakHours: '8h-10h / 17h-20h',
       demographics: 'Mixte : 25-65 ans, vacanciers',
       image: '/placeholder.svg',
-      coordinates: [14.5833, -60.9833]
+      coordinates: [14.5833, -60.9833] as [number, number]
     },
     {
       id: 'ducos-champigny',
@@ -65,7 +64,7 @@ const Implantations = () => {
       peakHours: '6h-8h / 16h-18h',
       demographics: 'Professionnels : 25-55 ans',
       image: '/placeholder.svg',
-      coordinates: [14.5667, -60.9167]
+      coordinates: [14.5667, -60.9167] as [number, number]
     },
     {
       id: 'place-armes',
@@ -79,7 +78,7 @@ const Implantations = () => {
       peakHours: '9h-12h / 14h-18h',
       demographics: 'Touristes et locaux : 20-70 ans',
       image: '/placeholder.svg',
-      coordinates: [14.6037, -61.0731]
+      coordinates: [14.6037, -61.0731] as [number, number]
     }
   ];
 
