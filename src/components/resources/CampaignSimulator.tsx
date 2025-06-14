@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -83,7 +82,7 @@ const CampaignSimulator = () => {
                 <Checkbox
                   id={zone.id}
                   checked={config.zones.includes(zone.id)}
-                  onCheckedChange={(checked) => handleZoneChange(zone.id, checked)}
+                  onCheckedChange={(checked) => handleZoneChange(zone.id, Boolean(checked))}
                 />
                 <label htmlFor={zone.id} className="text-sm">
                   {zone.name} <span className="text-gray-500">({zone.cost}€/jour)</span>
