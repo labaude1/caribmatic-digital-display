@@ -4,12 +4,13 @@ import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import BlogSidebar from '@/components/blog/BlogSidebar';
+import PageHeader from '@/components/PageHeader';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { blogArticles, blogCategories } from '@/data/blogData';
 import { BlogFilter } from '@/types/blog';
-import { Search, Calendar, Clock, Eye } from 'lucide-react';
+import { Search, Calendar, Clock, Eye, BookOpen, Users, TrendingUp, Award } from 'lucide-react';
 
 const Blog = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -17,6 +18,29 @@ const Blog = () => {
     sortBy: 'date',
     order: 'desc'
   });
+
+  const headerStats = [
+    {
+      icon: BookOpen,
+      value: `${blogArticles.length}`,
+      label: 'Articles experts'
+    },
+    {
+      icon: Users,
+      value: '2K+',
+      label: 'Lecteurs/mois'
+    },
+    {
+      icon: TrendingUp,
+      value: 'Weekly',
+      label: 'Nouveaux contenus'
+    },
+    {
+      icon: Award,
+      value: '100%',
+      label: 'Expertise locale'
+    }
+  ];
 
   const filteredArticles = useMemo(() => {
     let articles = [...blogArticles];
@@ -68,21 +92,15 @@ const Blog = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
-      <main className="pt-16">
-        {/* Hero Section */}
-        <section className="bg-gradient-to-br from-red-600 to-red-800 text-white py-12 md:py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 leading-tight">
-              Leader de l'Affichage Digital <br className="hidden sm:block" />
-              en <span className="text-red-200">Martinique</span>
-            </h1>
-            <p className="text-base sm:text-lg md:text-xl text-red-100 max-w-3xl mx-auto px-2">
-              Découvrez les dernières tendances, conseils et innovations 
-              du secteur de l'affichage digital en Martinique
-            </p>
-          </div>
-        </section>
+      
+      <PageHeader
+        title="Blog Affichage Digital Martinique"
+        highlight="Affichage Digital"
+        description="Découvrez les dernières tendances, conseils et innovations du secteur de l'affichage digital en Martinique"
+        stats={headerStats}
+      />
 
+      <main>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             {/* Main Content */}
