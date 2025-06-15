@@ -6,6 +6,15 @@ import MetricCard from '@/components/MetricCard';
 import Section from '@/components/Section';
 
 const HeroSection = () => {
+  // Custom icon components for MetricCard
+  const MemorizationIcon = () => (
+    <span className="text-2xl font-bold">73%</span>
+  );
+
+  const DiffusionsIcon = () => (
+    <span className="text-xl font-bold">576</span>
+  );
+
   return (
     <Section 
       id="accueil" 
@@ -50,14 +59,14 @@ const HeroSection = () => {
             />
             
             <MetricCard
-              icon={() => <span className="text-2xl font-bold">73%</span>}
+              icon={MemorizationIcon}
               value="Mémorisation"
               label="Taux de rappel"
               variant="inverse"
             />
             
             <MetricCard
-              icon={() => <span className="text-xl font-bold">576</span>}
+              icon={DiffusionsIcon}
               value="Diffusions/jour"
               label="Par écran"
               variant="inverse"
