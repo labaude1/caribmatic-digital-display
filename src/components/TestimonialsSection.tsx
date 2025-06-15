@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import Section from '@/components/Section';
+import SectionHeader from '@/components/SectionHeader';
 
 const TestimonialsSection = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -36,77 +38,72 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section className="py-20 bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Ce que Disent nos <span className="text-red-500">Clients</span>
-          </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Découvrez les témoignages de nos partenaires qui font confiance à Caribmatic
-          </p>
-        </div>
+    <Section background="dark" className="text-white">
+      <SectionHeader
+        title="Ce que Disent nos Clients"
+        highlight="Clients"
+        description="Découvrez les témoignages de nos partenaires qui font confiance à Caribmatic"
+      />
 
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-gray-800 rounded-lg p-8 relative">
-            {/* Stars */}
-            <div className="flex justify-center mb-6">
-              {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
-                <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+      <div className="max-w-4xl mx-auto">
+        <div className="card-interactive bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+          {/* Stars */}
+          <div className="flex justify-center mb-6">
+            {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
+              <Star key={i} className="h-6 w-6 text-yellow-400 fill-current" />
+            ))}
+          </div>
+
+          {/* Content */}
+          <blockquote className="text-xl md:text-2xl text-center text-white mb-8 leading-relaxed">
+            "{testimonials[currentTestimonial].content}"
+          </blockquote>
+
+          {/* Author */}
+          <div className="text-center mb-8">
+            <div className="font-semibold text-white text-lg">
+              {testimonials[currentTestimonial].name}
+            </div>
+            <div className="text-red-300">
+              {testimonials[currentTestimonial].company}
+            </div>
+          </div>
+
+          {/* Navigation */}
+          <div className="flex justify-center items-center space-x-6">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={prevTestimonial}
+              className="border-white/30 text-white hover:bg-white/10 w-12 h-12 rounded-xl"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </Button>
+
+            <div className="flex space-x-3">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentTestimonial(index)}
+                  className={`w-3 h-3 rounded-full transition-colors ${
+                    index === currentTestimonial ? 'bg-red-400' : 'bg-white/30'
+                  }`}
+                />
               ))}
             </div>
 
-            {/* Content */}
-            <blockquote className="text-lg md:text-xl text-center text-gray-200 mb-8">
-              "{testimonials[currentTestimonial].content}"
-            </blockquote>
-
-            {/* Author */}
-            <div className="text-center">
-              <div className="font-semibold text-white">
-                {testimonials[currentTestimonial].name}
-              </div>
-              <div className="text-red-400">
-                {testimonials[currentTestimonial].company}
-              </div>
-            </div>
-
-            {/* Navigation */}
-            <div className="flex justify-center items-center mt-8 space-x-4">
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={prevTestimonial}
-                className="border-gray-600 text-white hover:bg-gray-700"
-              >
-                <ChevronLeft className="h-4 w-4" />
-              </Button>
-
-              <div className="flex space-x-2">
-                {testimonials.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentTestimonial(index)}
-                    className={`w-3 h-3 rounded-full transition-colors ${
-                      index === currentTestimonial ? 'bg-red-500' : 'bg-gray-600'
-                    }`}
-                  />
-                ))}
-              </div>
-
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={nextTestimonial}
-                className="border-gray-600 text-white hover:bg-gray-700"
-              >
-                <ChevronRight className="h-4 w-4" />
-              </Button>
-            </div>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={nextTestimonial}
+              className="border-white/30 text-white hover:bg-white/10 w-12 h-12 rounded-xl"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </Button>
           </div>
         </div>
       </div>
-    </section>
+    </Section>
   );
 };
 
