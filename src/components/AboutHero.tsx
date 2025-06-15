@@ -29,7 +29,7 @@ const AboutHero = () => {
 
   return (
     <PageHeader
-      title="À propos de Caribmatic"
+      title="À propos de Caribmatic - Pionnier de l'Affichage Digital en Martinique"
       highlight="Caribmatic"
       description="Leader de l'affichage digital en Martinique depuis 2018, nous révolutionnons la communication outdoor dans les Antilles."
       stats={stats}
