@@ -14,18 +14,18 @@ const Realisations = () => {
   const headerStats = [
     {
       icon: Award,
-      value: '50+',
-      label: 'Projets réalisés'
+      value: '5',
+      label: 'Écrans LED Premium'
     },
     {
       icon: TrendingUp,
-      value: '+40%',
-      label: 'Augmentation visibilité'
+      value: '100K+',
+      label: 'Personnes touchées/jour'
     },
     {
       icon: Users,
-      value: '100K+',
-      label: 'Personnes atteintes/jour'
+      value: '500+',
+      label: 'Campagnes diffusées'
     },
     {
       icon: Target,
@@ -39,9 +39,9 @@ const Realisations = () => {
       <Header />
       
       <PageHeader
-        title="Nos Réalisations d'Affichage Digital en Martinique"
-        highlight="Réalisations"
-        description="Découvrez comment nos solutions d'affichage digital ont transformé la communication de nos clients en Martinique. Plus de 500 campagnes réussies."
+        title="Nos Installations d'Écrans LED en Martinique"
+        highlight="Installations"
+        description="Découvrez nos 5 écrans LED 6m² positionnés aux emplacements les plus stratégiques de la Martinique. Plus de 100 000 personnes touchées quotidiennement."
         stats={headerStats}
       />
 
