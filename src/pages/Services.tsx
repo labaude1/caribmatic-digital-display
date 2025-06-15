@@ -6,8 +6,32 @@ import { Label } from '@/components/ui/label';
 import { Monitor, Target, Zap, BarChart3, Camera, Palette, MapPin, Mail, Phone, User } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import PageHeader from '@/components/PageHeader';
 
 const Services = () => {
+  const headerStats = [
+    {
+      icon: Monitor,
+      value: '5',
+      label: 'Écrans LED 6m²'
+    },
+    {
+      icon: Target,
+      value: '73%',
+      label: 'Taux de mémorisation'
+    },
+    {
+      icon: Zap,
+      value: '576',
+      label: 'Diffusions/jour'
+    },
+    {
+      icon: BarChart3,
+      value: '100%',
+      label: 'Mesure ROI'
+    }
+  ];
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Formulaire de contact soumis');
@@ -17,20 +41,12 @@ const Services = () => {
     <div className="min-h-screen">
       <Header />
       
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-red-600 to-red-800 text-white py-20 mt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Nos Services d'Affichage Digital en Martinique
-            </h1>
-            <p className="text-xl md:text-2xl max-w-4xl mx-auto">
-              Solutions complètes de communication outdoor : écrans LED, publicité digitale, 
-              création de contenu et stratégies DOOH pour maximiser votre visibilité
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHeader
+        title="Nos Services d'Affichage Digital en Martinique"
+        highlight="Affichage Digital"
+        description="Solutions complètes de communication outdoor : écrans LED, publicité digitale, création de contenu et stratégies DOOH pour maximiser votre visibilité"
+        stats={headerStats}
+      />
 
       <main className="py-20">
         {/* Affichage Digital LED */}

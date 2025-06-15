@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -7,8 +8,32 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import ImplantationsMap from '@/components/ImplantationsMap';
 import ZoneReservationForm from '@/components/ZoneReservationForm';
+import PageHeader from '@/components/PageHeader';
 
 const Implantations = () => {
+  const headerStats = [
+    {
+      icon: MapPin,
+      value: '5',
+      label: 'Zones stratégiques'
+    },
+    {
+      icon: Users,
+      value: '92K+',
+      label: 'Personnes/jour'
+    },
+    {
+      icon: Clock,
+      value: '24h/24',
+      label: 'Diffusion continue'
+    },
+    {
+      icon: Car,
+      value: '100%',
+      label: 'Axes principaux'
+    }
+  ];
+
   const zones = [
     {
       id: 'californie',
@@ -93,31 +118,12 @@ const Implantations = () => {
     <div className="min-h-screen bg-white">
       <Header />
       
-      {/* Hero Section */}
-      <section className="pt-24 pb-12 bg-gradient-to-br from-red-50 to-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Nos Écrans LED dans les <span className="text-red-600">Zones Stratégiques</span> de Martinique
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            5 implantations premium positionnées sur les axes à plus fort trafic pour une visibilité maximale de votre message publicitaire
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
-            <Badge variant="secondary" className="text-lg px-4 py-2">
-              <Users className="h-5 w-5 mr-2" />
-              92,000+ personnes/jour
-            </Badge>
-            <Badge variant="secondary" className="text-lg px-4 py-2">
-              <MapPin className="h-5 w-5 mr-2" />
-              5 zones stratégiques
-            </Badge>
-            <Badge variant="secondary" className="text-lg px-4 py-2">
-              <Clock className="h-5 w-5 mr-2" />
-              Diffusion 24h/24
-            </Badge>
-          </div>
-        </div>
-      </section>
+      <PageHeader
+        title="Nos Écrans LED dans les Zones Stratégiques de Martinique"
+        highlight="Zones Stratégiques"
+        description="5 implantations premium positionnées sur les axes à plus fort trafic pour une visibilité maximale de votre message publicitaire"
+        stats={headerStats}
+      />
 
       {/* Interactive Map Section */}
       <section className="py-16 bg-white">
