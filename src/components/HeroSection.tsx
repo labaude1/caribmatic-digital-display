@@ -12,11 +12,11 @@ const HeroSection = () => {
       {/* Content */}
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
         <div className="max-w-4xl">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
             Leader de l'<span className="text-red-500">Affichage Digital</span> en Martinique
           </h1>
           
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 text-gray-200">
+          <p className="text-xl md:text-2xl mb-8 text-gray-200">
             5 écrans LED 6m² dans les zones stratégiques de la Martinique
             <br />
             <span className="text-red-400">Votre message vu par 50 000+ personnes/jour</span>
