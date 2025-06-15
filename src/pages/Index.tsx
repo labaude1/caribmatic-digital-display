@@ -43,7 +43,7 @@ const Index = () => {
   };
 
   return (
-    <>
+    <div className="min-h-screen">
       <SEOHead
         title="Affichage Digital Martinique - Caribmatic, Leader de la Communication Outdoor"
         description="Caribmatic, leader de l'affichage digital en Martinique. 5 écrans LED 6m² dans les zones stratégiques. Communication outdoor, écrans publicitaires LED. Devis gratuit."
@@ -54,18 +54,16 @@ const Index = () => {
       <SecurityHeaders />
       <Analytics />
       
-      <div className="min-h-screen">
-        <Header />
-        <main>
-          <HeroSection />
-          <AdvantagesSection />
-          <ServicesSection />
-          <TestimonialsSection />
-          <ImplantationsSection />
-        </main>
-        <Footer />
-      </div>
-    </>
+      <Header />
+      <main>
+        <HeroSection />
+        <AdvantagesSection />
+        <ServicesSection />
+        <TestimonialsSection />
+        <ImplantationsSection />
+      </main>
+      <Footer />
+    </div>
   );
 };
 

@@ -4,16 +4,6 @@ import { ArrowRight, MapPin, Monitor, Eye, RotateCcw } from 'lucide-react';
 import StandardHero from './StandardHero';
 
 const HeroSection = () => {
-  const handleGetQuote = () => {
-    console.log('Devis gratuit clicked');
-    // Navigation vers le formulaire de contact
-  };
-
-  const handleViewLocations = () => {
-    console.log('Voir implantations clicked');
-    // Navigation vers la page implantations
-  };
-
   return (
     <StandardHero
       title="Leader de l'"
@@ -22,13 +12,11 @@ const HeroSection = () => {
       description="5 écrans LED 6m² dans les zones stratégiques de la Martinique. Votre message vu par 50 000+ personnes/jour avec un taux de mémorisation exceptionnel de 73%."
       primaryCTA={{
         text: "Obtenir un Devis Gratuit",
-        icon: ArrowRight,
-        onClick: handleGetQuote
+        icon: ArrowRight
       }}
       secondaryCTA={{
         text: "Voir nos Implantations",
-        icon: MapPin,
-        onClick: handleViewLocations
+        icon: MapPin
       }}
       stats={[
         {
@@ -51,6 +39,7 @@ const HeroSection = () => {
         }
       ]}
       variant="gradient"
+      backgroundClass="from-gray-900 via-red-900 to-black"
     />
   );
 };

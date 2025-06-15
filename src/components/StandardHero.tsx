@@ -45,86 +45,79 @@ const StandardHero: React.FC<StandardHeroProps> = ({
   backgroundClass = 'from-gray-900 via-red-900 to-black'
 }) => {
   const bgClass = variant === 'gradient' 
-    ? 'hero-gradient' 
+    ? `bg-gradient-to-br ${backgroundClass}` 
     : 'bg-red-600';
 
   const PrimaryIcon = primaryCTA.icon;
   const SecondaryIcon = secondaryCTA?.icon;
 
   return (
-    <section className={`relative min-h-screen flex items-center ${bgClass} text-white overflow-hidden`}>
-      {/* Overlay décoratif premium */}
-      <div className="absolute inset-0 z-10">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-500/10 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-float" style={{animationDelay: '2s'}}></div>
-      </div>
+    <section className={`relative min-h-screen flex items-center ${bgClass} text-white`}>
+      {/* Background overlay */}
+      <div className="absolute inset-0 bg-black/50 z-10"></div>
       
       {/* Content */}
-      <div className="relative z-20 container-max w-full py-24">
-        <div className="max-w-6xl">
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="max-w-4xl">
           {badge && (
-            <Badge className="bg-gradient-to-r from-red-500/20 to-red-600/20 text-red-100 border border-red-500/30 mb-12 text-lg font-medium px-6 py-3 backdrop-blur-sm">
+            <Badge className="bg-red-200 text-red-800 mb-6 text-sm font-medium">
               {badge}
             </Badge>
           )}
           
-          <div className="space-y-6 mb-12">
-            <h1 className="hero-title">
-              {title}
-              {highlight && (
-                <span className="hero-highlight">
-                  {highlight}
-                </span>
-              )}
-            </h1>
-          </div>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+            {title}
+            {highlight && (
+              <span className="text-red-500"> {highlight}</span>
+            )}
+          </h1>
           
-          <p className="hero-subtitle mb-8">
+          <p className="text-xl md:text-2xl mb-4 text-gray-200 font-medium">
             {subtitle}
           </p>
 
-          <p className="hero-description mb-16">
+          <p className="text-lg md:text-xl mb-8 text-gray-300 leading-relaxed max-w-3xl">
             {description}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-8 mb-20">
+          <div className="flex flex-col sm:flex-row gap-4 mb-12">
             <Button 
               size="lg" 
-              className="btn-primary animate-glow"
+              className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 text-lg font-semibold"
               onClick={primaryCTA.onClick}
             >
               {primaryCTA.text}
-              {PrimaryIcon && <PrimaryIcon className="ml-4 h-6 w-6" />}
+              {PrimaryIcon && <PrimaryIcon className="ml-2 h-5 w-5" />}
             </Button>
             
             {secondaryCTA && (
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="btn-secondary glass-button"
+                className="border-white text-white hover:bg-white hover:text-red-600 px-8 py-4 text-lg font-semibold"
                 onClick={secondaryCTA.onClick}
               >
                 {secondaryCTA.text}
-                {SecondaryIcon && <SecondaryIcon className="ml-4 h-6 w-6" />}
+                {SecondaryIcon && <SecondaryIcon className="ml-2 h-5 w-5" />}
               </Button>
             )}
           </div>
 
-          {/* Stats Premium */}
+          {/* Stats */}
           {stats && stats.length > 0 && (
-            <div className="stats-container">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {stats.map((stat, index) => {
                 const IconComponent = stat.icon;
                 return (
-                  <div key={index} className="stat-item glass-card animate-float" style={{animationDelay: `${index * 0.5}s`}}>
-                    <div className="stat-icon animate-glow">
-                      <IconComponent className="h-8 w-8 text-white" />
+                  <div key={index} className="flex items-center space-x-3">
+                    <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center flex-shrink-0">
+                      <IconComponent className="h-6 w-6 text-white" />
                     </div>
-                    <div className="space-y-1">
-                      <div className="stat-value">{stat.value}</div>
-                      <div className="stat-label">{stat.label}</div>
+                    <div>
+                      <div className="text-2xl font-bold">{stat.value}</div>
+                      <div className="text-gray-300">{stat.label}</div>
                       {stat.description && (
-                        <div className="stat-description">{stat.description}</div>
+                        <div className="text-sm text-gray-400">{stat.description}</div>
                       )}
                     </div>
                   </div>
