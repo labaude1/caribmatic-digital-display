@@ -2,6 +2,8 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Monitor, Camera, Palette, BarChart } from 'lucide-react';
+import Section from '@/components/Section';
+import SectionHeader from '@/components/SectionHeader';
 
 const ServicesSection = () => {
   const services = [
@@ -32,55 +34,50 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Nos <span className="text-red-600">Services</span> d'Affichage Digital
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Une offre complète pour maximiser l'impact de votre communication outdoor en Martinique
-          </p>
-        </div>
+    <Section id="services">
+      <SectionHeader
+        title="Nos Services d'Affichage Digital"
+        highlight="Services"
+        description="Une offre complète pour maximiser l'impact de votre communication outdoor en Martinique"
+      />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service, index) => {
-            const IconComponent = service.icon;
-            return (
-              <div
-                key={index}
-                className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow duration-300"
-              >
-                <div className="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center mb-4">
-                  <IconComponent className="h-6 w-6 text-white" />
-                </div>
-                
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                  {service.title}
-                </h3>
-                
-                <p className="text-gray-600 mb-4">
-                  {service.description}
-                </p>
-                
-                <ul className="space-y-2 mb-6">
-                  {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center text-sm text-gray-600">
-                      <div className="w-2 h-2 bg-red-600 rounded-full mr-2"></div>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                
-                <Button variant="outline" className="w-full border-red-600 text-red-600 hover:bg-red-600 hover:text-white">
-                  En savoir plus
-                </Button>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {services.map((service, index) => {
+          const IconComponent = service.icon;
+          return (
+            <div
+              key={index}
+              className="card-interactive gradient-surface p-6"
+            >
+              <div className="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center mb-4">
+                <IconComponent className="h-6 w-6 text-white" />
               </div>
-            );
-          })}
-        </div>
+              
+              <h3 className="mb-3">
+                {service.title}
+              </h3>
+              
+              <p className="text-secondary mb-4">
+                {service.description}
+              </p>
+              
+              <ul className="space-y-2 mb-6">
+                {service.features.map((feature, featureIndex) => (
+                  <li key={featureIndex} className="flex items-center text-sm text-secondary">
+                    <div className="w-2 h-2 bg-red-600 rounded-full mr-2 flex-shrink-0"></div>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              
+              <Button className="w-full btn-secondary">
+                En savoir plus
+              </Button>
+            </div>
+          );
+        })}
       </div>
-    </section>
+    </Section>
   );
 };
 
