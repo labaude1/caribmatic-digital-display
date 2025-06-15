@@ -23,13 +23,13 @@ const PageHeader: React.FC<PageHeaderProps> = ({
   return (
     <section className="bg-gradient-to-br from-red-600 to-red-800 text-white pt-24 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           {subtitle && (
             <p className="text-red-200 font-semibold text-lg mb-4 uppercase tracking-wide">
               {subtitle}
             </p>
           )}
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4">
             {highlight ? (
               <>
                 {title.split(highlight)[0]}
