@@ -52,42 +52,46 @@ const StandardHero: React.FC<StandardHeroProps> = ({
   const SecondaryIcon = secondaryCTA?.icon;
 
   return (
-    <section className={`relative min-h-screen flex items-center ${bgClass} text-white`}>
+    <section className={`relative min-h-screen flex items-center ${bgClass} text-white overflow-hidden`}>
       {/* Background overlay */}
-      <div className="absolute inset-0 bg-black/50 z-10"></div>
+      <div className="absolute inset-0 bg-black/40 z-10"></div>
       
       {/* Content */}
-      <div className="relative z-20 container-max w-full">
-        <div className="max-w-4xl">
+      <div className="relative z-20 container-max w-full py-20">
+        <div className="max-w-5xl">
           {badge && (
-            <Badge className="bg-red-200 text-red-800 mb-6 text-sm font-medium">
+            <Badge className="bg-red-200 text-red-800 mb-8 text-base font-medium px-4 py-2">
               {badge}
             </Badge>
           )}
           
-          <h1 className="hero-title mb-6">
-            {title}
+          <div className="space-y-4 mb-8">
+            <h1 className="hero-title">
+              {title}
+            </h1>
             {highlight && (
-              <span className="hero-highlight"> {highlight}</span>
+              <div className="hero-highlight text-5xl md:text-7xl lg:text-8xl font-bold">
+                {highlight}
+              </div>
             )}
-          </h1>
+          </div>
           
           <p className="hero-subtitle">
             {subtitle}
           </p>
 
-          <p className="hero-description mb-8">
+          <p className="hero-description">
             {description}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 mb-12">
+          <div className="flex flex-col sm:flex-row gap-6 mb-16">
             <Button 
               size="lg" 
               className="btn-primary"
               onClick={primaryCTA.onClick}
             >
               {primaryCTA.text}
-              {PrimaryIcon && <PrimaryIcon className="ml-2 h-5 w-5" />}
+              {PrimaryIcon && <PrimaryIcon className="ml-3 h-6 w-6" />}
             </Button>
             
             {secondaryCTA && (
@@ -98,7 +102,7 @@ const StandardHero: React.FC<StandardHeroProps> = ({
                 onClick={secondaryCTA.onClick}
               >
                 {secondaryCTA.text}
-                {SecondaryIcon && <SecondaryIcon className="ml-2 h-5 w-5" />}
+                {SecondaryIcon && <SecondaryIcon className="ml-3 h-6 w-6" />}
               </Button>
             )}
           </div>
@@ -111,7 +115,7 @@ const StandardHero: React.FC<StandardHeroProps> = ({
                 return (
                   <div key={index} className="stat-item">
                     <div className="stat-icon">
-                      <IconComponent className="h-6 w-6 text-white" />
+                      <IconComponent className="h-7 w-7 text-white" />
                     </div>
                     <div>
                       <div className="stat-value">{stat.value}</div>
