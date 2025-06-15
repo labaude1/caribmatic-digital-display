@@ -18,7 +18,7 @@ interface StandardCardProps {
 
 const StandardCard: React.FC<StandardCardProps> = ({
   icon: Icon,
-  iconBg = 'bg-red-100',
+  iconBg = 'bg-gradient-to-br from-red-50 to-red-100',
   iconColor = 'text-red-600',
   title,
   description,
@@ -29,18 +29,18 @@ const StandardCard: React.FC<StandardCardProps> = ({
   hover = true
 }) => {
   const getCardClasses = () => {
-    const baseClasses = `${className} transition-all duration-300`;
-    const hoverClasses = hover ? 'hover:shadow-xl hover:-translate-y-1' : '';
+    const baseClasses = `${className} transition-all duration-500 bg-white border-0 shadow-lg`;
+    const hoverClasses = hover ? 'hover:shadow-2xl hover:-translate-y-2' : '';
     
     switch (variant) {
       case 'stats':
-        return `${baseClasses} text-center ${hoverClasses}`;
+        return `${baseClasses} text-center ${hoverClasses} rounded-2xl overflow-hidden`;
       case 'feature':
-        return `${baseClasses} ${hoverClasses}`;
+        return `${baseClasses} ${hoverClasses} rounded-2xl overflow-hidden`;
       case 'service':
-        return `${baseClasses} ${hoverClasses} border-l-4 border-red-600`;
+        return `${baseClasses} ${hoverClasses} border-l-4 border-red-500 rounded-2xl overflow-hidden shadow-xl`;
       default:
-        return `${baseClasses} ${hoverClasses}`;
+        return `${baseClasses} ${hoverClasses} rounded-2xl overflow-hidden`;
     }
   };
 
@@ -48,8 +48,8 @@ const StandardCard: React.FC<StandardCardProps> = ({
     if (!Icon) return null;
     
     return (
-      <div className={`w-16 h-16 ${iconBg} rounded-full flex items-center justify-center mx-auto mb-6`}>
-        <Icon className={`h-8 w-8 ${iconColor}`} />
+      <div className={`w-20 h-20 ${iconBg} rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-lg`}>
+        <Icon className={`h-10 w-10 ${iconColor}`} />
       </div>
     );
   };
@@ -58,50 +58,50 @@ const StandardCard: React.FC<StandardCardProps> = ({
     switch (variant) {
       case 'stats':
         return (
-          <>
+          <div className="p-8">
             {renderIcon()}
             {value && (
-              <div className="text-4xl font-bold text-red-600 mb-2">
+              <div className="text-5xl font-bold text-red-600 mb-4" style={{fontFamily: 'Inter, sans-serif'}}>
                 {value}
               </div>
             )}
-            <CardTitle className="text-xl font-semibold text-gray-900 mb-4">
+            <CardTitle className="text-2xl font-bold text-gray-900 mb-6" style={{fontFamily: 'Playfair Display, serif'}}>
               {title}
             </CardTitle>
-            <p className="text-gray-600 leading-relaxed">
+            <p className="text-gray-600 leading-relaxed text-lg" style={{fontFamily: 'Inter, sans-serif'}}>
               {description}
             </p>
-          </>
+          </div>
         );
       
       case 'feature':
         return (
-          <>
+          <div className="p-8">
             {renderIcon()}
-            <CardTitle className="text-xl font-semibold text-gray-900 mb-4">
+            <CardTitle className="text-2xl font-bold text-gray-900 mb-6" style={{fontFamily: 'Playfair Display, serif'}}>
               {title}
             </CardTitle>
-            <p className="text-gray-600 leading-relaxed">
+            <p className="text-gray-600 leading-relaxed text-lg" style={{fontFamily: 'Inter, sans-serif'}}>
               {description}
             </p>
-          </>
+          </div>
         );
 
       case 'service':
         return (
           <>
-            <CardHeader className="pb-4">
-              <CardTitle className="flex items-center gap-3 text-xl font-semibold text-gray-900">
-                {Icon && <Icon className={`h-6 w-6 ${iconColor}`} />}
+            <CardHeader className="pb-4 px-8 pt-8">
+              <CardTitle className="flex items-center gap-4 text-2xl font-bold text-gray-900" style={{fontFamily: 'Playfair Display, serif'}}>
+                {Icon && <Icon className={`h-7 w-7 ${iconColor}`} />}
                 {title}
               </CardTitle>
             </CardHeader>
-            <CardContent>
-              <p className="text-gray-600 leading-relaxed">
+            <CardContent className="px-8 pb-8">
+              <p className="text-gray-600 leading-relaxed text-lg" style={{fontFamily: 'Inter, sans-serif'}}>
                 {description}
               </p>
               {label && (
-                <div className="mt-4 text-sm font-medium text-red-600">
+                <div className="mt-6 text-base font-semibold text-red-600" style={{fontFamily: 'Inter, sans-serif'}}>
                   {label}
                 </div>
               )}
@@ -111,12 +111,12 @@ const StandardCard: React.FC<StandardCardProps> = ({
 
       default:
         return (
-          <CardContent className="pt-6">
+          <CardContent className="pt-8 p-8">
             {renderIcon()}
-            <CardTitle className="text-xl font-semibold text-gray-900 mb-4">
+            <CardTitle className="text-2xl font-bold text-gray-900 mb-6" style={{fontFamily: 'Playfair Display, serif'}}>
               {title}
             </CardTitle>
-            <p className="text-gray-600 leading-relaxed">
+            <p className="text-gray-600 leading-relaxed text-lg" style={{fontFamily: 'Inter, sans-serif'}}>
               {description}
             </p>
           </CardContent>
