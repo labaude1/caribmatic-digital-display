@@ -27,7 +27,7 @@ const ImplantationsMap = ({ zones, onZoneClick }: ImplantationsMapProps) => {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="card-elevated overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
         {/* Map Area */}
         <div className="lg:col-span-2 relative">
@@ -104,13 +104,13 @@ const ImplantationsMap = ({ zones, onZoneClick }: ImplantationsMapProps) => {
         </div>
 
         {/* Zone Details Panel */}
-        <div className="bg-gray-50 p-6">
+        <div className="gradient-surface p-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">
             Détails de l'implantation
           </h3>
           
           {selectedZone ? (
-            <Card>
+            <Card className="card-elevated">
               <CardHeader>
                 <CardTitle className="text-lg">{selectedZone.name}</CardTitle>
                 <CardDescription>{selectedZone.location}</CardDescription>
@@ -138,7 +138,7 @@ const ImplantationsMap = ({ zones, onZoneClick }: ImplantationsMapProps) => {
                 
                 <Button 
                   onClick={() => onZoneClick(selectedZone.id)}
-                  className="w-full bg-red-600 hover:bg-red-700"
+                  className="w-full btn-primary"
                 >
                   Voir les détails
                 </Button>
@@ -157,11 +157,11 @@ const ImplantationsMap = ({ zones, onZoneClick }: ImplantationsMapProps) => {
           <div className="mt-6 space-y-3">
             <h4 className="font-semibold text-gray-900">Statistiques globales</h4>
             <div className="grid grid-cols-1 gap-3">
-              <div className="bg-white rounded p-3 text-center">
+              <div className="card-elevated p-3 text-center">
                 <div className="text-2xl font-bold text-red-600">92K+</div>
                 <div className="text-xs text-gray-600">Personnes/jour</div>
               </div>
-              <div className="bg-white rounded p-3 text-center">
+              <div className="card-elevated p-3 text-center">
                 <div className="text-2xl font-bold text-red-600">24/7</div>
                 <div className="text-xs text-gray-600">Diffusion continue</div>
               </div>

@@ -39,12 +39,13 @@ const TeamSection = () => {
     <Section id="equipe" background="white">
       <SectionHeader
         title="Notre Équipe d'Experts"
+        highlight="Équipe"
         description="Une équipe passionnée et expérimentée, profondément enracinée en Martinique, au service de votre réussite commerciale."
       />
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {team.map((member, index) => (
-          <div key={index} className="card-interactive bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+          <div key={index} className="card-interactive overflow-hidden">
             <div className="aspect-w-1 aspect-h-1">
               <img 
                 src={member.image} 
@@ -58,7 +59,7 @@ const TeamSection = () => {
               <p className="text-red-600 font-medium mb-4">{member.role}</p>
               <p className="text-gray-600 mb-6">{member.bio}</p>
               
-              <div className="bg-gray-50 p-6 rounded-xl border-l-4 border-red-500 mb-6">
+              <div className="bg-red-50 p-6 rounded-xl border-l-4 border-red-500 mb-6">
                 <Quote className="h-5 w-5 text-red-500 mb-3" />
                 <p className="text-gray-700 italic">"{member.testimonial}"</p>
               </div>
