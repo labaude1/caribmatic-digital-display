@@ -2,11 +2,12 @@
 import React, { useState } from 'react';
 import { Menu, X, Monitor } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const navigation = [
     { name: 'Accueil', href: '/' },
@@ -32,6 +33,21 @@ const Header = () => {
           element.scrollIntoView({ behavior: 'smooth' });
         }
       }
+    }
+  };
+
+  const handleQuoteClick = () => {
+    if (location.pathname === '/contact') {
+      // Si on est déjà sur la page contact, scroller vers le formulaire de devis
+      setTimeout(() => {
+        const quoteSection = document.querySelector('[data-quote-form]');
+        if (quoteSection) {
+          quoteSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    } else {
+      // Sinon, naviguer vers la page contact
+      navigate('/contact');
     }
   };
 
@@ -62,11 +78,12 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Link to="/contact">
-              <Button className="bg-red-600 hover:bg-red-700 text-white px-6 py-2">
-                Devis Gratuit
-              </Button>
-            </Link>
+            <Button 
+              className="bg-red-600 hover:bg-red-700 text-white px-6 py-2"
+              onClick={handleQuoteClick}
+            >
+              Devis Gratuit
+            </Button>
           </div>
 
           {/* Mobile menu button */}
@@ -94,11 +111,12 @@ const Header = () => {
                   {item.name}
                 </Link>
               ))}
-              <Link to="/contact">
-                <Button className="bg-red-600 hover:bg-red-700 text-white w-full">
-                  Devis Gratuit
-                </Button>
-              </Link>
+              <Button 
+                className="bg-red-600 hover:bg-red-700 text-white w-full"
+                onClick={handleQuoteClick}
+              >
+                Devis Gratuit
+              </Button>
             </div>
           </div>
         )}
