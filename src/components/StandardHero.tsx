@@ -45,7 +45,7 @@ const StandardHero: React.FC<StandardHeroProps> = ({
   backgroundClass = 'from-gray-900 via-red-900 to-black'
 }) => {
   const bgClass = variant === 'gradient' 
-    ? `bg-gradient-to-br ${backgroundClass}` 
+    ? `hero-gradient ${backgroundClass}` 
     : 'bg-red-600';
 
   const PrimaryIcon = primaryCTA.icon;
@@ -57,7 +57,7 @@ const StandardHero: React.FC<StandardHeroProps> = ({
       <div className="absolute inset-0 bg-black/50 z-10"></div>
       
       {/* Content */}
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div className="relative z-20 container-max w-full">
         <div className="max-w-4xl">
           {badge && (
             <Badge className="bg-red-200 text-red-800 mb-6 text-sm font-medium">
@@ -65,25 +65,25 @@ const StandardHero: React.FC<StandardHeroProps> = ({
             </Badge>
           )}
           
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+          <h1 className="hero-title mb-6">
             {title}
             {highlight && (
-              <span className="text-red-500"> {highlight}</span>
+              <span className="hero-highlight"> {highlight}</span>
             )}
           </h1>
           
-          <p className="text-xl md:text-2xl mb-4 text-gray-200 font-medium">
+          <p className="hero-subtitle">
             {subtitle}
           </p>
 
-          <p className="text-lg md:text-xl mb-8 text-gray-300 leading-relaxed max-w-3xl">
+          <p className="hero-description mb-8">
             {description}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
             <Button 
               size="lg" 
-              className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 text-lg font-semibold"
+              className="btn-primary"
               onClick={primaryCTA.onClick}
             >
               {primaryCTA.text}
@@ -94,7 +94,7 @@ const StandardHero: React.FC<StandardHeroProps> = ({
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="border-white text-white hover:bg-white hover:text-red-600 px-8 py-4 text-lg font-semibold"
+                className="btn-secondary"
                 onClick={secondaryCTA.onClick}
               >
                 {secondaryCTA.text}
@@ -105,19 +105,19 @@ const StandardHero: React.FC<StandardHeroProps> = ({
 
           {/* Stats */}
           {stats && stats.length > 0 && (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="stats-container">
               {stats.map((stat, index) => {
                 const IconComponent = stat.icon;
                 return (
-                  <div key={index} className="flex items-center space-x-3">
-                    <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center flex-shrink-0">
+                  <div key={index} className="stat-item">
+                    <div className="stat-icon">
                       <IconComponent className="h-6 w-6 text-white" />
                     </div>
                     <div>
-                      <div className="text-2xl font-bold">{stat.value}</div>
-                      <div className="text-gray-300">{stat.label}</div>
+                      <div className="stat-value">{stat.value}</div>
+                      <div className="stat-label">{stat.label}</div>
                       {stat.description && (
-                        <div className="text-sm text-gray-400">{stat.description}</div>
+                        <div className="stat-description">{stat.description}</div>
                       )}
                     </div>
                   </div>
