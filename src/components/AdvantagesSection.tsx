@@ -21,30 +21,36 @@ const AdvantagesSection = () => {
     },
     {
       icon: Recycle,
-      value: '0',
-      title: 'Déchet',
+      value: '100%',
+      title: 'Écologique',
       description: 'Solution 100% écologique sans production de déchets papier ou plastique',
     },
   ];
 
   return (
-    <Section background="light">
-      <SectionHeader
-        title="Pourquoi Choisir l'Affichage Digital ?"
-        highlight="Affichage Digital"
-        description="L'affichage digital révolutionne la communication outdoor avec des performances inégalées"
-      />
+    <Section background="white" className="relative">
+      {/* Subtle gradient overlay for visual continuity */}
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-50/50 to-white"></div>
+      
+      <div className="relative z-10">
+        <SectionHeader
+          title="Pourquoi Choisir l'Affichage Digital ?"
+          highlight="Affichage Digital"
+          description="L'affichage digital révolutionne la communication outdoor avec des performances inégalées"
+        />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {advantages.map((advantage, index) => (
-          <MetricCard
-            key={index}
-            icon={advantage.icon}
-            value={advantage.value + (advantage.title === 'Mémorisation' ? '%' : '')}
-            label={advantage.title}
-            description={advantage.description}
-          />
-        ))}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {advantages.map((advantage, index) => (
+            <MetricCard
+              key={index}
+              icon={advantage.icon}
+              value={advantage.value}
+              label={advantage.title}
+              description={advantage.description}
+              variant="highlight"
+            />
+          ))}
+        </div>
       </div>
     </Section>
   );
