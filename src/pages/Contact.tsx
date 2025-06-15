@@ -7,6 +7,7 @@ import QuoteForm from '@/components/contact/QuoteForm';
 import ContactInfo from '@/components/contact/ContactInfo';
 import ContactMap from '@/components/contact/ContactMap';
 import ContactFAQ from '@/components/contact/ContactFAQ';
+import PageHeader from '@/components/PageHeader';
 import { Helmet } from 'react-helmet';
 
 const Contact = () => {
@@ -56,20 +57,10 @@ const Contact = () => {
       <div className="min-h-screen bg-gray-50">
         <Header />
         
-        {/* Hero Section */}
-        <section className="bg-gradient-to-br from-red-600 to-red-800 text-white pt-24 pb-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                Contactez-nous
-              </h1>
-              <p className="text-xl text-red-100 max-w-3xl mx-auto">
-                Prêt à booster votre visibilité ? Demandez votre devis gratuit pour l'affichage digital 
-                sur nos écrans LED premium en Martinique.
-              </p>
-            </div>
-          </div>
-        </section>
+        <PageHeader
+          title="Contactez-nous"
+          description="Prêt à booster votre visibilité ? Demandez votre devis gratuit pour l'affichage digital sur nos écrans LED premium en Martinique."
+        />
 
         {/* Contact Forms Section */}
         <section className="py-16">
