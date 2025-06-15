@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ArrowRight, MapPin, Monitor, Eye, RotateCcw } from 'lucide-react';
+import { ArrowRight, MapPin, Monitor } from 'lucide-react';
 import StandardHero from './StandardHero';
 
 const HeroSection = () => {
@@ -26,15 +26,19 @@ const HeroSection = () => {
           description: "Positionnement stratégique"
         },
         {
-          icon: Eye,
-          value: "73%",
-          label: "Mémorisation",
+          icon: ({ className }) => (
+            <span className={`${className} text-white font-bold text-lg`}>73%</span>
+          ),
+          value: "Mémorisation",
+          label: "Taux de rappel",
           description: "Performance exceptionnelle"
         },
         {
-          icon: RotateCcw,
-          value: "576",
-          label: "Diffusions/jour",
+          icon: ({ className }) => (
+            <span className={`${className} text-white font-bold text-sm`}>576</span>
+          ),
+          value: "Diffusions/jour",
+          label: "Par écran",
           description: "Visibilité maximale"
         }
       ]}
